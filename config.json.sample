@@ -1,0 +1,13 @@
+{
+    "server":{
+        "port": 8088,
+        "host": "127.0.0.1"
+    },
+    "db":{
+        "host:": "localhost",
+        "name": "gopds",
+        "user": "gopds",
+        "pass": "put_here_you_password",
+        "port": 5432
+    }
+}
