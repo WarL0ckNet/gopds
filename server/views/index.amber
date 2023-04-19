@@ -4,5 +4,6 @@ block title
     | #{Title}
 
 block content
-    h3 #{Message}
-    div #{FooterText}
+    div.container
+        h3 #{Message}
+        div #{FooterText}

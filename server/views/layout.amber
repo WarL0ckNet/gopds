@@ -1,4 +1,4 @@
-!!! 5
+doctype 5
 html
     head
         block meta
@@ -6,9 +6,70 @@ html
             meta[name="viewport"][content="width=device-width, initial-scale=1"]
         block link
             link[href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"][rel="stylesheet"][integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"][crossorigin="anonymous"]
-
+        block script
+            script[src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"]
+            script[src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"][integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"][crossorigin="anonymous"]
+            script[src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"][integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"][crossorigin="anonymous"]
         title
             block title
                 | Go OPDS server
     body
+        nav.navbar.sticky-top.navbar-expand-sm.navbar-dark.bg-dark
+            button.navbar-toggler[type="button"][data-toggle="collapse"][data-target="#content"][aria-controls="content"][aria-expanded="false"][aria-label="Toggle navigation"]
+                span.navbar-toggler-icon
+            div#content.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a.nav-link[href="/"] Главная
+                    li.nav-item
+                        a.nav-link[href="/catalog"] Каталоги
+                    li.nav-item.dropdown
+                        a.nav-link.dropdown-toggle[href="#"][role="button"][data-bs-toggle="dropdown"][aria-expanded="false"] Книги
+                        ul.dropdown-menu[role="menu"]
+                            li
+                                a.dropdown-item[href="/book/?lang=0"] Кириллица (РУС)
+                            li
+                                a.dropdown-item[href="/book/?lang=1"] Латинница (LAT)
+                            li
+                                a.dropdown-item[href="/book/?lang=2"] Цифры (0..9)
+                            li
+                                a.dropdown-item[href="/book/?lang=3"] Другие символы
+                            li
+                                a.dropdown-item[href="/book/?lang=4"] Показать все
+                    li.nav-item.dropdown
+                        a.nav-link.dropdown-toggle[href="#"][role="button"][data-bs-toggle="dropdown"][aria-expanded="false"] Авторы
+                        ul.dropdown-menu[role="menu"]
+                            li
+                                a.dropdown-item[href="/author/?lang=0"] Кириллица (РУС)
+                            li
+                                a.dropdown-item[href="/author/?lang=1"] Латинница (LAT)
+                            li
+                                a.dropdown-item[href="/author/?lang=2"] Цифры (0..9)
+                            li
+                                a.dropdown-item[href="/author/?lang=3"] Другие символы
+                            li
+                                a.dropdown-item[href="/author/?lang=4"] Показать все
+                    li.nav-item
+                        a.nav-link[href="/genre"] Жанры
+                    li.nav-item.dropdown
+                        a.nav-link.dropdown-toggle[href="#"][role="button"][data-bs-toggle="dropdown"][aria-expanded="false"] Серии
+                        ul.dropdown-menu[role="menu"]
+                            li
+                                a.dropdown-item[href="/series/?lang=0"] Кириллица (РУС)
+                            li
+                                a.dropdown-item[href="/series/?lang=1"] Латинница (LAT)
+                            li
+                                a.dropdown-item[href="/series/?lang=2"] Цифры (0..9)
+                            li
+                                a.dropdown-item[href="/series/?lang=3"] Другие символы
+                            li
+                                a.dropdown-item[href="/series/?lang=4"] Показать все
+                    form.d-flex.[role="search"]
+                        div.dropdown-center
+                            input.form-control-sm.me-2[type="search"][placeholder="Search"][aria-label="Search"]                       
+                            button.btn.btn-sm.btn-secondary.dropdown-toggle.dropdown-toggle-split[type="submit"][data-bs-toggle="dropdown"][aria-expanded="false"] Search
+                                span.visually-hidden Toggle Dropdown
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item[href="#"] Action
         block content

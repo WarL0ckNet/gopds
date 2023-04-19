@@ -83,6 +83,16 @@ type Bseries struct {
 	Series *Series `gorm:"foreignKey:SerID"`
 }
 
+type User struct {
+	ID          uint   `gorm:"primaryKey;autoIncrement"`
+	UserName    string `gorm:"size:150;not null"`
+	Password    string `gorm:"size:128;not null"`
+	FirstName   string `gorm:"size:150"`
+	LastName    string `gorm:"size:150"`
+	LastLogin   *time.Time
+	DateJopined *time.Time
+}
+
 func MigrateAll(db *gorm.DB) {
 	db.AutoMigrate(&Genre{})
 	db.AutoMigrate(&Catalog{})
@@ -92,4 +102,5 @@ func MigrateAll(db *gorm.DB) {
 	db.AutoMigrate(&Bauthor{})
 	db.AutoMigrate(&Bgenre{})
 	db.AutoMigrate(&Bseries{})
+	db.AutoMigrate(&User{})
 }

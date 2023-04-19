@@ -21,9 +21,10 @@ func Start(host string, port int) {
 
 func index(ctx iris.Context) {
 	data := iris.Map{
-		"Title":      "Page Title",
+		"Title":      fmt.Sprintf("%s / %s", ctx.Tr("common.title"), ctx.Tr("index.title")),
 		"FooterText": "Footer contents",
-		"Message":    ctx.Tr("hi"),
+		"active":     "index",
+		"Message":    ctx.Tr("test.text"),
 	}
 
 	if err := ctx.View("index.amber", data); err != nil {
